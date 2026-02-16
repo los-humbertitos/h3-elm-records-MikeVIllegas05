@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Main</title>
+  <title>Helper</title>
   <style>body { padding: 0; margin: 0; }</style>
 </head>
 
@@ -4441,98 +4441,14 @@ var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var $elm$html$Html$li = _VirtualDom_node('li');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $author$project$Main$anItem = function (content) {
-	return A2(
-		$elm$html$Html$li,
-		_List_Nil,
-		_List_fromArray(
-			[
-				$elm$html$Html$text(content)
-			]));
-};
-var $elm$core$List$foldrHelper = F4(
-	function (fn, acc, ctr, ls) {
-		if (!ls.b) {
-			return acc;
-		} else {
-			var a = ls.a;
-			var r1 = ls.b;
-			if (!r1.b) {
-				return A2(fn, a, acc);
-			} else {
-				var b = r1.a;
-				var r2 = r1.b;
-				if (!r2.b) {
-					return A2(
-						fn,
-						a,
-						A2(fn, b, acc));
-				} else {
-					var c = r2.a;
-					var r3 = r2.b;
-					if (!r3.b) {
-						return A2(
-							fn,
-							a,
-							A2(
-								fn,
-								b,
-								A2(fn, c, acc)));
-					} else {
-						var d = r3.a;
-						var r4 = r3.b;
-						var res = (ctr > 500) ? A3(
-							$elm$core$List$foldl,
-							fn,
-							acc,
-							$elm$core$List$reverse(r4)) : A4($elm$core$List$foldrHelper, fn, acc, ctr + 1, r4);
-						return A2(
-							fn,
-							a,
-							A2(
-								fn,
-								b,
-								A2(
-									fn,
-									c,
-									A2(fn, d, res))));
-					}
-				}
-			}
-		}
-	});
-var $elm$core$List$foldr = F3(
-	function (fn, acc, ls) {
-		return A4($elm$core$List$foldrHelper, fn, acc, 0, ls);
-	});
-var $elm$core$List$map = F2(
-	function (f, xs) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, acc) {
-					return A2(
-						$elm$core$List$cons,
-						f(x),
-						acc);
-				}),
-			_List_Nil,
-			xs);
-	});
-var $elm$html$Html$ul = _VirtualDom_node('ul');
-var $author$project$Main$aList = function (listContent) {
-	return A2(
-		$elm$html$Html$ul,
-		_List_Nil,
-		A2($elm$core$List$map, $author$project$Main$anItem, listContent));
-};
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $author$project$Main$myLaptop = {brand: 'Think', model: 'Razer', ram: '16Gb', screenSize: '14'};
-var $author$project$Main$main = A2(
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $author$project$Helper$myLaptop = {brand: 'L', model: 'Razer', ram: '32', screenSize: '13'};
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $author$project$Helper$main = A2(
 	$elm$html$Html$div,
 	_List_Nil,
 	_List_fromArray(
@@ -4542,34 +4458,64 @@ var $author$project$Main$main = A2(
 			_List_Nil,
 			_List_fromArray(
 				[
-					$elm$html$Html$text('My Laptop')
+					$elm$html$Html$text('My laptop')
 				])),
 			A2(
 			$elm$html$Html$div,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$aList(
+					A2(
+					$elm$html$Html$ul,
+					_List_Nil,
 					_List_fromArray(
 						[
-							'Ram: ' + function ($) {
-							return $.ram;
-						}($author$project$Main$myLaptop),
-							'Modelo: ' + function ($) {
-							return $.model;
-						}($author$project$Main$myLaptop),
-							'Brand: ' + function ($) {
-							return $.brand;
-						}($author$project$Main$myLaptop),
-							'ScreenSize: ' + function ($) {
-							return $.screenSize;
-						}($author$project$Main$myLaptop)
+							A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Ram: ' + function ($) {
+										return $.ram;
+									}($author$project$Helper$myLaptop))
+								])),
+							A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Modelo: ' + function ($) {
+										return $.model;
+									}($author$project$Helper$myLaptop))
+								])),
+							A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Marca: ' + function ($) {
+										return $.brand;
+									}($author$project$Helper$myLaptop))
+								])),
+							A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Pulgadas: ' + function ($) {
+										return $.screenSize;
+									}($author$project$Helper$myLaptop))
+								]))
 						]))
 				]))
 		]));
-_Platform_export({'Main':{'init':_VirtualDom_init($author$project$Main$main)(0)(0)}});}(this));
+_Platform_export({'Helper':{'init':_VirtualDom_init($author$project$Helper$main)(0)(0)}});}(this));
 
-  var app = Elm.Main.init({ node: document.getElementById("elm") });
+  var app = Elm.Helper.init({ node: document.getElementById("elm") });
 }
 catch (e)
 {

@@ -27,7 +27,7 @@ jobs:
           --rules NoMissingTypeAnnotation,NoMissingTypeAnnotationInLetIn
       - name: Build
         run: |
-          elm make src/*
+          elm make src/Helper.elm
       - name: Run tests
         run: |
           elm-test

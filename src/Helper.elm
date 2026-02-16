@@ -1,65 +1,96 @@
 module Helper exposing (..)
 
-
-lenguage : List { name : String, releaseYear : Int, currentVersion : String }
-lenguage =
-    [ { name = "elm"
-      , releaseYear = 2016
-      , currentVersion = "0.9.1"
-      }
-    , { name = "Java"
-      , releaseYear = 2012
-      , currentVersion = "0.10.6"
-      }
-    ]
+import Html
 
 
-lenguageNames : List { name : String, releaseYear : Int, currentVersion : String } -> List String
-lenguageNames inData =
+add2 : Int -> Int -> Int
+add2 int1 int2 =
+    int1 + int2
+
+
+add3 : Float -> Float -> Float -> Float
+add3 int1 int2 int3 =
+    int1 + int2 + int3
+
+
+calc : Int -> Int -> (Int -> Int -> Int) -> Int
+calc int1 int2 operator =
+    operator int1 int2
+
+
+languageNames : List { name : String, releaseYear : Int, currentVersion : String } -> List String
+languageNames inData =
     List.map .name inData
 
 
-type alias Person =
-    { name : String, uType : String }
+onlyStudents : List { name : String, uType : String } -> List String
+onlyStudents fuzzList =
+    List.map
+        (\u ->
+            case .uType u of
+                "Student" ->
+                    .name u
+
+                "Professor" ->
+                    ""
+
+                _ ->
+                    ""
+        )
+        fuzzList
 
 
-users : List Person
-users =
-    [ { name = "Mike"
-      , uType = "Student"
-      }
-    , { name = "Mitsiu"
-      , uType = "Professor"
-      }
-    ]
+type alias Videogame =
+    { title : String, releaseYear : Int, available : Bool, downloads : Int, genres : List String }
 
 
-onlyStudents : List Person -> List String
-onlyStudents students =
-    List.map .name students
-
-
-type alias VideoGame =
-    { title : String, releaseYear : Int, avaliable : Bool, download : Int, genres : List String }
-
-
-videoGames : List VideoGame
-videoGames =
+videogames : List Videogame
+videogames =
     [ { title = "Overwatch"
-      , releaseYear = 2016
-      , avaliable = True
-      , download = 36
-      , genres = [ "Shoter", "Action" ]
+      , releaseYear = 2019
+      , available = True
+      , downloads = 64
+      , genres = [ "Action", "Shooter" ]
       }
     , { title = "Terraria"
-      , releaseYear = 2015
-      , avaliable = True
-      , download = 10
-      , genres = [ "MMO", "Supervivencia" ]
+      , releaseYear = 2014
+      , available = True
+      , downloads = 12
+      , genres = [ "Action", "Adventure" ]
       }
     ]
 
 
-getVideogamesGenres : List VideoGame -> List (List String)
-getVideogamesGenres list =
-    List.map .genres list
+getVideogameGenres : List Videogame -> List (List String)
+getVideogameGenres games =
+    List.map .genres games
+
+
+type alias Computer =
+    { ram : String, model : String, brand : String, screenSize : String }
+
+
+myLaptop : Computer
+myLaptop =
+    { ram = "32"
+    , model = "Razer"
+    , brand = "L"
+    , screenSize = "13"
+    }
+
+
+main : Html.Html msg
+main =
+    Html.div []
+        [ Html.h1 []
+            [ Html.text "My laptop"
+            ]
+        , Html.div []
+            [ Html.ul []
+                [ Html.li [] [ Html.text ("Ram: " ++ .ram myLaptop) ]
+                , Html.li [] [ Html.text ("Modelo: " ++ .model myLaptop) ]
+                , Html.li [] [ Html.text ("Marca: " ++ .brand myLaptop) ]
+                , Html.li [] [ Html.text ("Pulgadas: " ++ .screenSize myLaptop) ]
+                ]
+            ]
+        ]
