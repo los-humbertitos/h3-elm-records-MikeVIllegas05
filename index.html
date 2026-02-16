@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Helper</title>
+  <title>Main</title>
   <style>body { padding: 0; margin: 0; }</style>
 </head>
 
@@ -4444,7 +4444,7 @@ var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $author$project$Helper$anItem = function (content) {
+var $author$project$Main$anItem = function (content) {
 	return A2(
 		$elm$html$Html$li,
 		_List_Nil,
@@ -4523,16 +4523,16 @@ var $elm$core$List$map = F2(
 			xs);
 	});
 var $elm$html$Html$ul = _VirtualDom_node('ul');
-var $author$project$Helper$aList = function (listContent) {
+var $author$project$Main$aList = function (listContent) {
 	return A2(
 		$elm$html$Html$ul,
 		_List_Nil,
-		A2($elm$core$List$map, $author$project$Helper$anItem, listContent));
+		A2($elm$core$List$map, $author$project$Main$anItem, listContent));
 };
 var $elm$html$Html$div = _VirtualDom_node('div');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $author$project$Helper$myLaptop = {brand: 'Think', model: 'Razer', ram: '16Gb', screenSize: '14'};
-var $author$project$Helper$main = A2(
+var $author$project$Main$myLaptop = {brand: 'Think', model: 'Razer', ram: '16Gb', screenSize: '14'};
+var $author$project$Main$main = A2(
 	$elm$html$Html$div,
 	_List_Nil,
 	_List_fromArray(
@@ -4549,27 +4549,27 @@ var $author$project$Helper$main = A2(
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Helper$aList(
+					$author$project$Main$aList(
 					_List_fromArray(
 						[
 							'Ram: ' + function ($) {
 							return $.ram;
-						}($author$project$Helper$myLaptop),
+						}($author$project$Main$myLaptop),
 							'Modelo: ' + function ($) {
 							return $.model;
-						}($author$project$Helper$myLaptop),
+						}($author$project$Main$myLaptop),
 							'Brand: ' + function ($) {
 							return $.brand;
-						}($author$project$Helper$myLaptop),
+						}($author$project$Main$myLaptop),
 							'ScreenSize: ' + function ($) {
 							return $.screenSize;
-						}($author$project$Helper$myLaptop)
+						}($author$project$Main$myLaptop)
 						]))
 				]))
 		]));
-_Platform_export({'Helper':{'init':_VirtualDom_init($author$project$Helper$main)(0)(0)}});}(this));
+_Platform_export({'Main':{'init':_VirtualDom_init($author$project$Main$main)(0)(0)}});}(this));
 
-  var app = Elm.Helper.init({ node: document.getElementById("elm") });
+  var app = Elm.Main.init({ node: document.getElementById("elm") });
 }
 catch (e)
 {
